@@ -1,13 +1,12 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- task: UnityTestTask@1
-  inputs:
-    testMode: 'EditMode'
-    unityEditorsPathMode: 'unityHub'
-    commandLineArgumentsMode: 'custom'
-    customCommandLineArguments: '-buildassetbundles'
+jobs:
+- job: 'BuildAssetBundles'
+  steps:
+   - task: UnityTestTask@1
+     inputs:
+      testMode: 'EditMode'
+      unityEditorsPathMode: 'unityHub'
+      commandLineArgumentsMode: 'custom'
+      customCommandLineArguments: '-buildassetbundles'
